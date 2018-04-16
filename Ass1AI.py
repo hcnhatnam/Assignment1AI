@@ -18,73 +18,97 @@ class Bloxorz:
         listVisted=[]
         while stack.__len__()!=0:
             currentState=stack.pop()
-            if currentState==self.goalState:
+            #print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")")
+            if self.isGoal(currentState):
                 return currentState
             if not self.isVisted(currentState,listVisted):
-                stack+=self.successor(currentState)
+                stack+=self.successor(currentState,listVisted)
             listVisted.append(currentState)
         return None
+    def isGoal(self,currentState):
+        return self.goalState.x1==currentState.x1 and self.goalState.y1==currentState.y1 and currentState.oriented==0
     def isVisted(self,currentState,listVisted):
-        return  currentState in listVisted
-    def successor(self,currentState:State):
+        for i in listVisted:
+            if i.x1==currentState.x1 and i.y1==currentState.y1 and  i.x2==currentState.x2 and i.y2==currentState.y2 and i.oriented==currentState.oriented:
+                return True
+        return False
+    def successor(self,currentState:State,listVisted):
         listSuccessor=[]
         if  currentState.oriented==0:# Column is Vertical
             stateRight=State(currentState.x1+1,currentState.y1,currentState.x1+2,currentState.y1,1,currentState)
-            if(self.isValidState(stateRight) and self.isValidState(stateRight)):
+            if(self.isValidState(stateRight) and not self.isVisted(stateRight,listVisted)):
                 listSuccessor.append(stateRight)
 
-            stateLeft=State(currentState.x1-1,currentState.y1,currentState.x1-2,currentState.y1,1,currentState)
-            if(self.isValidState(stateLeft)and self.isValidState(stateLeft)):
+            stateLeft=State(currentState.x1-2,currentState.y1,currentState.x1-1,currentState.y1,1,currentState)
+            if(self.isValidState(stateLeft)and not self.isVisted(stateLeft,listVisted)):
                 listSuccessor.append(stateLeft)
 
-            stateTop=State(currentState.x1,currentState.y1-1,currentState.x1,currentState.y1-2,2,currentState)#mapMatrix có hàng 1 cột 1=0
-            if(self.isValidState(stateTop)and self.isValidState(stateTop)):
+            stateTop=State(currentState.x1,currentState.y1-2,currentState.x1,currentState.y1-1,2,currentState)#mapMatrix có hàng 1 cột 1=0
+            if(self.isValidState(stateTop)and not self.isVisted(stateTop,listVisted)):
                 listSuccessor.append(stateTop)
 
             stateDown=State(currentState.x1,currentState.y1+1,currentState.x1,currentState.y1+2,2,currentState)#mapMatrix có hàng 1 cột 1=0
-            if(self.isValidState(stateDown)and self.isValidState(stateDown)):
+            if(self.isValidState(stateDown)and not self.isVisted(stateDown,listVisted)):
                 listSuccessor.append(stateDown)
         else:
             if currentState.oriented==1: #Column is HorizontalY
                 stateRight=State(currentState.x2+1,currentState.y1,-1,-1,0,currentState)
-                if(self.isValidState(stateRight)and self.isValidState(stateRight)):
+                if(self.isValidState(stateRight)and not self.isVisted(stateRight,listVisted)):
                     listSuccessor.append(stateRight)
 
                 stateLeft=State(currentState.x1-1,currentState.y1,-1,-1,0,currentState)
-                if(self.isValidState(stateLeft)and self.isValidState(stateLeft)):
+                if(self.isValidState(stateLeft)and not self.isVisted(stateLeft,listVisted)):
                     listSuccessor.append(stateLeft)
 
                 stateTop=State(currentState.x1,currentState.y1-1,currentState.x2,currentState.y2-1,1,currentState)#mapMatrix có hàng 1 cột 1=0
-                if(self.isValidState(stateTop)and self.isValidState(stateTop)):
+                if(self.isValidState(stateTop)and not self.isVisted(stateTop,listVisted)):
                     listSuccessor.append(stateTop)
 
                 stateDown=State(currentState.x1,currentState.y1+1,currentState.x2,currentState.y2+1,1,currentState)#mapMatrix có hàng 1 cột 1=0
-                if(self.isValidState(stateDown)and self.isValidState(stateDown)):
+                if(self.isValidState(stateDown)and not self.isVisted(stateDown,listVisted)):
                     listSuccessor.append(stateDown)
             if currentState.oriented==2: #Column is HorizontalX
                 stateRight=State(currentState.x1+1,currentState.y1,currentState.x2+1,currentState.y2,2,currentState)
-                if(self.isValidState(stateRight)and self.isValidState(stateRight)):
+                if(self.isValidState(stateRight)and not self.isVisted(stateRight,listVisted)):
                     listSuccessor.append(stateRight)
 
                 stateLeft=State(currentState.x1-1,currentState.y1,currentState.x2-1,currentState.y2,2,currentState)
-                if(self.isValidState(stateLeft)and self.isValidState(stateLeft)):
+                if(self.isValidState(stateLeft)and not self.isVisted(stateLeft,listVisted)):
                     listSuccessor.append(stateLeft)
 
                 stateTop=State(currentState.x1,currentState.y1-1,-1,-1,0,currentState)#mapMatrix có hàng 1 cột 1=0
-                if(self.isValidState(stateTop)and self.isValidState(stateTop)):
+                if(self.isValidState(stateTop)and not self.isVisted(stateTop,listVisted)):
                     listSuccessor.append(stateTop)
 
-                stateDown=State(currentState.x1,currentState.y2+1,-1,-1,0,currentState)#mapMatrix có hàng 1 cột 1=0
-                if(self.isValidState(stateDown)and self.isValidState(stateDown)):
+                stateDown=State(currentState.x2,currentState.y2+1,-1,-1,0,currentState)#mapMatrix có hàng 1 cột 1=0
+                if(self.isValidState(stateDown)and not self.isVisted(stateDown,listVisted)):
                     listSuccessor.append(stateDown)
-
+        return listSuccessor
 
     def isValidState(self,stateCheck:State):
-        if(self.mapMatrix[stateCheck.x1][stateCheck.y1]*self.mapMatrix[stateCheck.x1][stateCheck.y1]!=0):
-            return True
-        else :
-            return False
+
+        if(stateCheck.oriented==0):
+            if(self.mapMatrix[stateCheck.x1][stateCheck.y1]!=0):
+                return True
+        else:
+            if(self.mapMatrix[stateCheck.x1][stateCheck.y1]*self.mapMatrix[stateCheck.x2][stateCheck.y2]!=0):
+                return True
+        return False
+
+def printResult(lastState:State):
+    path=lastState
+    while path!=None:
+        print("("+str(path.x1)+","+str(path.y1)+")"+"|"+"("+str(path.x2)+","+str(path.y2)+")")
+        path=path.parent
 def main():
-    print("aa")
+    matrixMap=[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],
+               [0,0,1,1,1,0,0,0,0,0],[0,0,1,1,1,1,0,0,0,0],
+               [0,0,1,1,1,1,0,0,0,0],[0,0,0,1,1,1,0,0,0,0],
+               [0,0,0,1,1,1,0,0,0,0],[0,0,0,1,1,1,1,0,0,0],
+               [0,0,0,0,1,1,1,1,0,0],[0,0,0,0,1,1,-1,1,0,0],
+               [0,0,0,0,1,1,1,1,0,0],[0,0,0,0,0,1,1,0,0,0],
+               [0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
+    bloxorz=Bloxorz(matrixMap,State(3,3,-1,-1,0,None),State(9,6,-1,-1,0,None))
+    printResult(bloxorz.SolveDFS())
 if __name__ == "__main__":
     main()
