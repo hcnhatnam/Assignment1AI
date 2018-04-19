@@ -60,7 +60,7 @@ class Bloxorz:
                 listSuccessor.append(stateDown)
         else:
             if currentState.oriented==2: #2:song song Y(--);
-                stateRight=State(currentState.x2,currentState.y1+1,-1,-1,0,currentState)
+                stateRight=State(currentState.x2,currentState.y1+2,-1,-1,0,currentState)
                 if(self.isValidState(stateRight)and not self.isVisted(stateRight,listVisted)):
                     listSuccessor.append(stateRight)
 

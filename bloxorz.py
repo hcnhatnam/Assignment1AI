@@ -2,7 +2,7 @@ import pygame, math
 
 
 screen_width = 1000
-screen_height = 700
+screen_height = 600
 startX = 100
 startY = 200
 length = 25
