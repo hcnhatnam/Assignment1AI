@@ -18,10 +18,13 @@ class Block:
         self.width = 40
         self.height = 30
 
-    def drawVertical(self):
+    def drawVertical(self,oriented):
         x,y,w,h = self.x,self.y,self.width,self.height
-        b_w = 80
-
+        b_w = 0
+        if(oriented==3):
+            b_w=40
+        else:
+            b_w=80
         pygame.draw.polygon(display,(255,0,0),[(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang+w,y-10+h-b_w),(x-10+w,y-10-b_w)])#Mat phai
         pygame.draw.polygon(display,(0,255,0),[(x-10+w,y-10),(x-10,y),(x-10,y-b_w),(x-10+w,y-10-b_w)]) #Mat sau
         pygame.draw.polygon(display,(147,40,61),[(x-10,y),(x+ang,y+h),(x+ang,y+h-b_w),(x-10,y-b_w)]) #Mat trai
@@ -50,14 +53,6 @@ class Block:
         pygame.draw.polygon(display,(147,40,61),[(x-10,y),(x+ang+deltaX,y+h+deltaY),(x+ang+deltaX,y+h-b_w+deltaY),(x-10,y-b_w)]) #Mat trai
         pygame.draw.polygon(display,(220,59,90),[(x+ang+w+deltaX,y-10+h+deltaY),(x+ang+deltaX,y+h+deltaY),(x+ang+deltaX,y+h-b_w+deltaY),(x+ang+w+deltaX,y-10+h-b_w+deltaY)])  #Mat truoc
         pygame.draw.polygon(display,(255,78,123),[(x-10+w,y-10-b_w),(x+ang+w+deltaX,y-10+h-b_w+deltaY),(x+ang+deltaX,y+h-b_w+deltaY),(x-10,y-b_w)])#Mat tren
-    def rotate_around(self,degrees,centre,point):
-        x,y = point
-        degrees = math.radians(degrees)
-        pX,pY = centre
-        rotX = pX + (math.cos(degrees)*(x-pX))-(math.sin(degrees)*(y-pY))
-        rotY = pY + (math.sin(degrees)*(x-pX))-(math.cos(degrees)*(y-pY))
-        return (int(rotX),int(rotY))
-
 class Tile:
     def __init__(self,x=100,y=100):
         self.x = x
@@ -73,6 +68,8 @@ class Tile:
             pygame.draw.polygon(display,(0,252,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==3:
             pygame.draw.polygon(display,(249,0,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
+        elif type==4:
+            pygame.draw.polygon(display,(10,0,40),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==-1:#Đích
             pygame.draw.polygon(display,(237,72,114),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         pygame.draw.polygon(display,(136,143,145),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)],1) #Vien mat tren
@@ -105,17 +102,23 @@ bloxor = Block()
 pygame.init()
 pygame.display.set_caption("Bloxorz")
 level_array = []
-def drawBlo(x,y,oriented):
+def drawBlo(x1,y1,oriented=0,x2=0,y2=0):
     #clock.tick(30)
     display.fill((18,180,167)) #fill screen white
-    bloxor.x=100+y*40+25*x
-    bloxor.y=200-y*10+30*x
+    bloxor.x=100+y1*40+25*x1
+    bloxor.y=200-y1*10+30*x1
     draw_level(level_array)
     if oriented==0:
-        bloxor.drawVertical()
+        bloxor.drawVertical(oriented)
     elif oriented==1:
         bloxor.drawHorizontalY()
-    else:
+    elif oriented==2:
         bloxor.drawHorizontalX()
-
+    elif oriented==3:
+        bloxor.drawVertical(oriented)
+        bloxor2 = Block()
+        bloxor2.x=100+y2*40+25*x2
+        bloxor2.y=200-y2*10+30*x2
+        bloxor2.drawVertical(oriented)
     pygame.display.flip() #update screen
+
