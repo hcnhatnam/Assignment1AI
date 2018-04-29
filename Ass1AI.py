@@ -35,6 +35,11 @@ class Bloxorz:
         stack=[self.startState]
         while stack.__len__()!=0:
             currentState=stack.pop()
+            #if currentState.x1==7 and currentState.y1==8 and currentState.x2==8 and currentState.y2==8:
+            #   a=0
+            #time.sleep(0.2)
+            #blo.level_array=currentState.matrixMap
+            #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
             if self.isGoal(currentState):
                 printResult(currentState)
                 sys.exit()
@@ -42,7 +47,6 @@ class Bloxorz:
                 stack += self.successorSingleBlockStep1(currentState,currentState.listVisited,currentState.matrixMap)
             elif not self.isVisted(currentState, currentState.listVisited):
                 stack += self.successor(currentState,currentState.listVisited,currentState.matrixMap)
-
             currentState.listVisited.append(currentState)
         return None
 
@@ -81,10 +85,6 @@ class Bloxorz:
             if self.isGoal(currentState):
                 printResult(currentState)
                 sys.exit()
-            #if currentState.x1==3 and currentState.y1==10 and currentState.x2==3 and currentState.y2==11 and currentState.oriented==2 and currentState.matrixMap[3][8]==1:
-            #    a=0
-            #if currentState.x1==3 and currentState.y1==9 and currentState.oriented==0 and currentState.matrixMap[3][8]==1 and currentState.matrixMap[3][5]==1:
-            #    a=0
             if not self.isVisted(currentState,currentState.listVisited):
                 if currentState.oriented!=3:
                     successor= self.successor(currentState,currentState.listVisited,currentState.matrixMap)
@@ -130,9 +130,6 @@ class Bloxorz:
         stack=[self.startState]
         while stack.__len__()!=0:
             currentState=stack.pop(0)
-
-            if(currentState.oriented==3):
-                a=0
             if self.isGoal(currentState):
                 return currentState
             if not self.isVisted(currentState, currentState.listVisited):
@@ -211,14 +208,15 @@ class Bloxorz:
 
     def isValidState(self,stateCheck:State):
         if(stateCheck.oriented==0):
-            if(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]!=0):#Đang đứng và ô đó có gạch
-                return True
-            elif(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==5):#Đang đứng và ô đó là Gỗ
+            if(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==0 or stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==5):#Đang đứng 0 va go
                 return False
+            else:
+                return True
         else:#Đang nằm và (x1,y1) hoặc (x2,y2) đều là ô có gạch
             if(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]*stateCheck.matrixMap[stateCheck.x2][stateCheck.y2]!=0):
                 return True
-        return False
+            else:
+                return False
 
 def printResult(lastState:State):
     listResult=[]
@@ -231,23 +229,29 @@ def printResult(lastState:State):
         print("("+str(top.x1)+","+str(top.y1)+")"+"|"+"("+str(top.x2)+","+str(top.y2)+")"+"|"+str(top.oriented))
         blo.level_array=top.matrixMap
         blo.drawBlo(top.x1,top.y1,top.oriented,top.x2,top.y2)
-    i=0
+        time.sleep(0.2)
 
 
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage10.txt'
+    stage='Stage/Stage5.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
     bloxorz=0
     if stage=='Stage/Stage1.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage1
-    elif stage=='Stage2.txt':
+    elif stage=='Stage/Stage2.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(4,4,[(6,6),(6,7)],3),specialSquare(3,10,[(6,12),(6,13)],2)],State(6,3,-1,-1,0,[],mapMatrix,None),State(3,15,-1,-1,0,[],mapMatrix,None))#Stage2
     elif stage=='Stage/Stage3.txt':
-        bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage3
+        bloxorz=Bloxorz(mapMatrix,[],State(5,3,-1,-1,0,[],mapMatrix,None),State(5,15,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage4.txt':
+        bloxorz=Bloxorz(mapMatrix,[],State(7,3,-1,-1,0,[],mapMatrix,None),State(9,8,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage5.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,10,[(3,7),(3,8)],3),specialSquare(5,5,[(10,7),(10,8)],3),specialSquare(7,8,[(10,7),(10,8)],3),specialSquare(8,16,[(10,7),(10,8)],3)],State(5,15,-1,-1,0,[],mapMatrix,None),State(10,3,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage6.txt':
+        bloxorz=Bloxorz(mapMatrix,[],State(5,3,-1,-1,0,[],mapMatrix,None),State(5,15,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage8.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(6,6,[(3,11),(9,11)],4)],State(6,3,-1,-1,0,[],mapMatrix,None),State(6,14,-1,-1,0,[],mapMatrix,None))#Stage8
     elif stage=='Stage/Stage10.txt':
