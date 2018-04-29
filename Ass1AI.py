@@ -226,34 +226,31 @@ def printResult(lastState:State):
     while path!=None:
         listResult.append(path)
         path=path.parent
-    i=0
     while listResult.__len__()!=0:
         top=listResult.pop()
         print("("+str(top.x1)+","+str(top.y1)+")"+"|"+"("+str(top.x2)+","+str(top.y2)+")"+"|"+str(top.oriented))
         blo.level_array=top.matrixMap
         blo.drawBlo(top.x1,top.y1,top.oriented,top.x2,top.y2)
-        time.sleep(0.1)
-        i=i+1
     i=0
 
 
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage10.txt'
+    stage='Stage/Stage10.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
     bloxorz=0
-    if stage=='Stage1.txt':
+    if stage=='Stage/Stage1.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage1
     elif stage=='Stage2.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(4,4,[(6,6),(6,7)],3),specialSquare(3,10,[(6,12),(6,13)],2)],State(6,3,-1,-1,0,[],mapMatrix,None),State(3,15,-1,-1,0,[],mapMatrix,None))#Stage2
-    elif stage=='Stage3.txt':
+    elif stage=='Stage/Stage3.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage3
-    elif stage=='Stage8.txt':
+    elif stage=='Stage/Stage8.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(6,6,[(3,11),(9,11)],4)],State(6,3,-1,-1,0,[],mapMatrix,None),State(6,14,-1,-1,0,[],mapMatrix,None))#Stage8
-    elif stage=='Stage10.txt':
+    elif stage=='Stage/Stage10.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(3,14,[(3,11),(3,14)],4),specialSquare(11,7,[(3,5),(3,6)],3),specialSquare(11,13,[(3,8),(3,9),(4,14),(5,14)],2)],State(3,11,-1,-1,0,[],mapMatrix,None),State(3,3,-1,-1,0,[],mapMatrix,None))#Stage8
 
     blo.level_array=mapMatrix
@@ -263,26 +260,6 @@ def main():
     #printResult(result)
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

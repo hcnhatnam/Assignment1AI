@@ -1,5 +1,5 @@
 import pygame, math
-
+import time
 
 screen_width = 1000
 screen_height = 600
@@ -65,11 +65,11 @@ class Tile:
         if type==1:
             pygame.draw.polygon(display,(249,252,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==2:
-            pygame.draw.polygon(display,(0,252,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
+            pygame.draw.polygon(display,(0,255,0),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==3:
-            pygame.draw.polygon(display,(249,0,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
+            pygame.draw.polygon(display,(0,0,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==4:
-            pygame.draw.polygon(display,(10,0,40),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
+            pygame.draw.polygon(display,(255,0,0),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==-1:#Đích
             pygame.draw.polygon(display,(237,72,114),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         pygame.draw.polygon(display,(136,143,145),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)],1) #Vien mat tren
@@ -121,4 +121,5 @@ def drawBlo(x1,y1,oriented=0,x2=0,y2=0):
         bloxor2.y=200-y2*10+30*x2
         bloxor2.drawVertical(oriented)
     pygame.display.flip() #update screen
+
 
