@@ -198,11 +198,11 @@ class Bloxorz:
                     for i in special.Open:
                         stateCheck.matrixMap[i[0]][i[1]] = int(not stateCheck.matrixMap[i[0]][i[1]])#toggle
                 elif special.constance==1:#Luon Bat
-                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][0]] == 0:
+                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][1]] == 0:
                         for i in special.Open:
                             stateCheck.matrixMap[i[0]][i[1]] = 1
                 elif special.constance==2:#Luon Tat
-                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][0]] == 1:
+                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][1]] == 1:
                         for i in special.Open:
                             stateCheck.matrixMap[i[0]][i[1]] = 0
         elif stateCheck.oriented==0 and stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==4:
@@ -242,7 +242,7 @@ def printResult(lastState:State):
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage11.txt'
+    stage='Stage/Stage5.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
