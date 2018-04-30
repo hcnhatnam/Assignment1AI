@@ -16,11 +16,12 @@ class State:
         self.parent=parent
 #Đích -1,
 class specialSquare:
-    def __init__(self,xLocate,yLocate,Open:list,attribute):#attribute=2 X;attribute=3 O;attribute=4 Slipt;
+    def __init__(self,xLocate,yLocate,Open:list,attribute,constance=0):#attribute=2 X;attribute=3 O;attribute=4 Slipt;constance: (0 normal,1 Alway Open, 2 Close)
         self.xLocate=xLocate
         self.yLocate=yLocate
         self.Open=Open
         self.attribute=attribute
+        self.constance=constance
 
 
 class Bloxorz:
@@ -194,8 +195,18 @@ class Bloxorz:
                         specialSquare=x
                         break
                 stateCheck.matrixMap=copy.deepcopy(stateCheck.matrixMap)#Copy matrixMap
-            for i in specialSquare.Open:
-                stateCheck.matrixMap[i[0]][i[1]] = int(not stateCheck.matrixMap[i[0]][i[1]])#toggle
+            if specialSquare.constance==0:
+                for i in specialSquare.Open:
+                    stateCheck.matrixMap[i[0]][i[1]] = int(not stateCheck.matrixMap[i[0]][i[1]])#toggle
+            elif specialSquare.constance==1:#Luon Bat
+                if  stateCheck.matrixMap[specialSquare.Open[0][0]][specialSquare.Open[0][0]] == 0:
+                    for i in specialSquare.Open:
+                        stateCheck.matrixMap[i[0]][i[1]] = 1
+            elif specialSquare.constance==2:#Luon Tat
+                if  stateCheck.matrixMap[specialSquare.Open[0][0]][specialSquare.Open[0][0]] == 1:
+                    for i in specialSquare.Open:
+                        stateCheck.matrixMap[i[0]][i[1]] = 0
+
         elif stateCheck.oriented==0 and stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==4:
             specialSquare=None
             for x in self.specialSquareList:
@@ -235,7 +246,7 @@ def printResult(lastState:State):
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage5.txt'
+    stage='Stage/Stage6.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
@@ -249,9 +260,11 @@ def main():
     elif stage=='Stage/Stage4.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(7,3,-1,-1,0,[],mapMatrix,None),State(9,8,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage5.txt':
-        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,10,[(3,7),(3,8)],3),specialSquare(5,5,[(10,7),(10,8)],3),specialSquare(7,8,[(10,7),(10,8)],3),specialSquare(8,16,[(10,7),(10,8)],3)],State(5,15,-1,-1,0,[],mapMatrix,None),State(10,3,-1,-1,0,[],mapMatrix,None))
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,10,[(3,7),(3,8)],3),specialSquare(5,5,[(10,7),(10,8)],3,1),specialSquare(7,8,[(10,7),(10,8)],3,2),specialSquare(8,16,[(10,7),(10,8)],3)],State(3,15,-1,-1,0,[],mapMatrix,None),State(10,3,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage6.txt':
-        bloxorz=Bloxorz(mapMatrix,[],State(5,3,-1,-1,0,[],mapMatrix,None),State(5,15,-1,-1,0,[],mapMatrix,None))
+        bloxorz=Bloxorz(mapMatrix,[],State(5,2,-1,-1,0,[],mapMatrix,None),State(6,15,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage7.txt':
+        bloxorz=Bloxorz(mapMatrix,[],State(5,2,-1,-1,0,[],mapMatrix,None),State(6,15,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage8.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(6,6,[(3,11),(9,11)],4)],State(6,3,-1,-1,0,[],mapMatrix,None),State(6,14,-1,-1,0,[],mapMatrix,None))#Stage8
     elif stage=='Stage/Stage10.txt':
