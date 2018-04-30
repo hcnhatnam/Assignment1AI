@@ -1,8 +1,8 @@
 import pygame, math
 import time
 
-screen_width = 1000
-screen_height = 600
+screen_width = 1100
+screen_height = 700
 startX = 100
 startY = 200
 length = 25
@@ -70,6 +70,8 @@ class Tile:
             pygame.draw.polygon(display,(0,0,255),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==4:
             pygame.draw.polygon(display,(255,0,0),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
+        elif type==5:#Gỗ
+            pygame.draw.polygon(display,(200,200,0),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         elif type==-1:#Đích
             pygame.draw.polygon(display,(237,72,114),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)]) #Mat tren
         pygame.draw.polygon(display,(136,143,145),[(x-10,y),(x-10+w,y-10),(x+ang+w,y-10+h),(x+ang,y+h)],1) #Vien mat tren
