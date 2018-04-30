@@ -55,21 +55,21 @@ class Bloxorz:
     def successorSingleBlockStep1(self,currentState:State,listVisited,matrixMap):
         listSuccessor=[]
 
-        stateRight=self.checkCombine(State(currentState.x1,currentState.y1+1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState.parent))
+        stateRight=self.checkCombine(State(currentState.x1,currentState.y1+1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState))
         listSuccessor+=self.addListSuccessor(listVisited,stateRight)
         listVisited+=self.successorSingleBlockStep2(stateRight,listVisited,matrixMap)
 
-        stateLeft=self.checkCombine(State(currentState.x1,currentState.y1-1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState.parent))
+        stateLeft=self.checkCombine(State(currentState.x1,currentState.y1-1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState))
         listSuccessor+=self.addListSuccessor(listVisited,stateLeft)
         listVisited+=self.successorSingleBlockStep2(stateLeft,listVisited,matrixMap)
 
 
-        stateTop=self.checkCombine(State(currentState.x1-1,currentState.y1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState.parent))
+        stateTop=self.checkCombine(State(currentState.x1-1,currentState.y1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState))
         listSuccessor+=self.addListSuccessor(listVisited,stateTop)
         listVisited+=self.successorSingleBlockStep2(stateTop,listVisited,matrixMap)
 
 
-        stateDown=self.checkCombine(State(currentState.x1+1,currentState.y1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState.parent))
+        stateDown=self.checkCombine(State(currentState.x1+1,currentState.y1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState))
         listSuccessor+=self.addListSuccessor(listVisited,stateDown)
         listVisited+=self.successorSingleBlockStep2(stateDown,listVisited,matrixMap)
         return listSuccessor
@@ -115,19 +115,31 @@ class Bloxorz:
 
         return listSuccessor
 
+    def checkCombine(self,newState:State):
+        if newState.x1==newState.x2:
+            if newState.y1-newState.y2==-1:
+                return State(newState.x1,newState.y1,newState.x2,newState.y2,2,newState.listVisited,newState.matrixMap,newState.parent)
+            if newState.y1-newState.y2==1:
+                return State(newState.x2,newState.y2,newState.x1,newState.y1,2,newState.listVisited,newState.matrixMap,newState.parent)
+        if newState.y1==newState.y2:
+            if newState.x1-newState.x2==-1:
+                return State(newState.x1,newState.y1,newState.x2,newState.y2,1,newState.listVisited,newState.matrixMap,newState.parent)
+            if newState.x1-newState.x2==1:
+                return State(newState.x2,newState.y2,newState.x1,newState.y1,1,newState.listVisited,newState.matrixMap,newState.parent)
+        return newState
 
-    def checkCombine(self,currentState:State):
-        if currentState.x1==currentState.x2:
-            if currentState.y1-currentState.y2==-1:
-                return State(currentState.x1,currentState.y1,currentState.x2,currentState.y2,2,currentState.listVisited,currentState.matrixMap,currentState.parent)
-            if currentState.y1-currentState.y2==1:
-                return State(currentState.x2,currentState.y2,currentState.x1,currentState.y1,2,currentState.listVisited,currentState.matrixMap,currentState.parent)
-        if currentState.y1==currentState.y2:
-            if currentState.x1-currentState.x2==-1:
-                return State(currentState.x1,currentState.y1,currentState.x2,currentState.y2,1,currentState.listVisited,currentState.matrixMap,currentState.parent)
-            if currentState.x1-currentState.x2==1:
-                return State(currentState.x2,currentState.y2,currentState.x1,currentState.y1,1,currentState.listVisited,currentState.matrixMap,currentState.parent)
-        return currentState
+    # def checkCombine(self,currentState:State):
+    #     if currentState.x1==currentState.x2:
+    #         if currentState.y1-currentState.y2==-1:
+    #             return State(currentState.x1,currentState.y1,currentState.x2,currentState.y2,2,currentState.listVisited,currentState.matrixMap,currentState.parent)
+    #         if currentState.y1-currentState.y2==1:
+    #             return State(currentState.x2,currentState.y2,currentState.x1,currentState.y1,2,currentState.listVisited,currentState.matrixMap,currentState.parent)
+    #     if currentState.y1==currentState.y2:
+    #         if currentState.x1-currentState.x2==-1:
+    #             return State(currentState.x1,currentState.y1,currentState.x2,currentState.y2,1,currentState.listVisited,currentState.matrixMap,currentState.parent)
+    #         if currentState.x1-currentState.x2==1:
+    #             return State(currentState.x2,currentState.y2,currentState.x1,currentState.y1,1,currentState.listVisited,currentState.matrixMap,currentState.parent)
+    #     return currentState
 
     def SolveBFS(self):
         stack=[self.startState]
@@ -177,6 +189,8 @@ class Bloxorz:
         return listSuccessor
 
     def addListSuccessor(self,listVisited,state):
+        if (state.x1,state.y1) in [(3,9),(3,14)] and state.oriented == 3:
+            print("ok")
         if(self.isValidState(state) and not self.isVisted(state,listVisited)):
             return [self.enterSpecialSquare(state)]
         else:
@@ -289,14 +303,14 @@ def printResult(lastState:State):
         print("("+str(top.x1)+","+str(top.y1)+")"+"|"+"("+str(top.x2)+","+str(top.y2)+")"+"|"+str(top.oriented))
         blo.level_array=top.matrixMap
         blo.drawBlo(top.x1,top.y1,top.oriented,top.x2,top.y2)
-        time.sleep(0.3)
+        time.sleep(0.15)
 
 
 #Gỗ 5
 def main():
     mapMatrix = []
 
-    stage='Stage/Stage9.txt'
+    stage='Stage/Stage16.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
@@ -338,6 +352,3 @@ def main():
     #printResult(result)
 if __name__ == "__main__":
     main()
-
-
-
