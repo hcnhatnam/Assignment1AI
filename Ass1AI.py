@@ -36,7 +36,7 @@ class Bloxorz:
         stack=[self.startState]
         while stack.__len__()!=0:
             currentState=stack.pop()
-            #time.sleep(1)
+            #time.sleep(0.0)
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
             if self.isGoal(currentState):
@@ -86,7 +86,7 @@ class Bloxorz:
         allStateVisited=[currentState]
         while stack.__len__()!=0:
             currentState=stack.pop()#pop(0) BFS search
-            #time.sleep(1)
+            #time.sleep(0.0)
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
             #if (currentState.x1,currentState.y1)==(3,1) or (currentState.x2,currentState.y2)==(3,1) and currentState.oriented == 3:
@@ -187,8 +187,8 @@ class Bloxorz:
         return listSuccessor
 
     def addListSuccessor(self,listVisited,state):
-        if (state.x1,state.y1)==(3,3) and (state.x2,state.y2)==(4,3):
-            print("ok")
+        #if (state.x1,state.y1)==(3,3) and (state.x2,state.y2)==(4,3):
+        #    print("ok")
         if self.isValidState(state) and not self.isVisted(state,listVisited):
             return[self.enterSpecialSquare(state)]
         else:
@@ -353,7 +353,7 @@ def main():
     elif stage=='Stage/Stage20.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(9,3,[(3,12),(3,13)],3),specialSquare(6,5,[(3,7),(3,8)],3,2),specialSquare(4,9,[(3,7),(3,8)],3,2),specialSquare(6,11,[(3,7),(3,8)],3,2),specialSquare(6,9,[(3,15),(9,15)],4),specialSquare(8,14,[(8,12),(8,13)],3)],State(4,10,-1,-1,0,[],mapMatrix,None),State(10,15,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage26.txt':
-        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,9,[(5,4),(5,5)],3),specialSquare(2,15,[(7,12),(5,14)],4),specialSquare(9,3,[(9,11)],1,1)],State(7,12,-1,-1,0,[],mapMatrix,None),State(11,9,-1,-1,0,[],mapMatrix,None))
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,9,[(5,4),(5,5)],3,2),specialSquare(2,15,[(7,12),(5,14)],4),specialSquare(9,3,[(9,11),(6,5)],2,1)],State(7,12,-1,-1,0,[],mapMatrix,None),State(9,9,-1,-1,0,[],mapMatrix,None))
 
     blo.level_array=mapMatrix
     blo.drawBlo(bloxorz.startState.x1,bloxorz.startState.y1,bloxorz.startState.oriented)
