@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030326b3-f83b-456a-a63c-234defdaddf1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Ass1AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ass1AI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Level21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Level22.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Level23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Level24.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Level25.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Book1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Book1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stage/Stage33.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Stage/Stage33.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Stage33.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Stage33.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +25,8 @@
       <file leaf-file-name="Ass1AI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass1AI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="321" column="69" selection-start-line="321" selection-start-column="69" selection-end-line="321" selection-end-column="69" />
+            <state relative-caret-position="203">
+              <caret line="317" column="72" selection-start-line="317" selection-start-column="72" selection-end-line="317" selection-end-column="72" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -178,12 +182,12 @@
       <updated>1525267672197</updated>
       <workItem from="1525267673973" duration="3200000" />
       <workItem from="1525271138991" duration="30000" />
-      <workItem from="1525271613150" duration="1037000" />
+      <workItem from="1525271613150" duration="1076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4267000" />
+    <option name="totallyTimeSpent" value="4306000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -196,7 +200,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294509" />
@@ -207,7 +210,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.3294509" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.3294509" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -292,8 +295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="321" column="69" selection-start-line="321" selection-start-column="69" selection-end-line="321" selection-end-column="69" />
+        <state relative-caret-position="203">
+          <caret line="317" column="72" selection-start-line="317" selection-start-column="72" selection-end-line="317" selection-end-column="72" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
