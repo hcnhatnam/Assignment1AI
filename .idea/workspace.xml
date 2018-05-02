@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030326b3-f83b-456a-a63c-234defdaddf1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Assignment1AI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment1AI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ass1AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ass1AI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stage/Stage10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Stage/Stage10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Book1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Book1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stage/Stage33.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Stage/Stage33.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,15 +14,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525271667724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525272374901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Ass1AI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass1AI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1069">
-              <caret line="263" selection-start-line="263" selection-end-line="263" />
+            <state relative-caret-position="299">
+              <caret line="321" column="69" selection-start-line="321" selection-start-column="69" selection-end-line="321" selection-end-column="69" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -178,12 +178,12 @@
       <updated>1525267672197</updated>
       <workItem from="1525267673973" duration="3200000" />
       <workItem from="1525271138991" duration="30000" />
-      <workItem from="1525271613150" duration="63000" />
+      <workItem from="1525271613150" duration="1037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3293000" />
+    <option name="totallyTimeSpent" value="4267000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1069">
-          <caret line="263" selection-start-line="263" selection-end-line="263" />
+        <state relative-caret-position="299">
+          <caret line="321" column="69" selection-start-line="321" selection-start-column="69" selection-end-line="321" selection-end-column="69" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
