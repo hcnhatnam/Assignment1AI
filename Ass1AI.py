@@ -61,7 +61,7 @@ class Bloxorz:
 
         stateLeft=self.checkCombine(State(currentState.x1,currentState.y1-1,currentState.x2,currentState.y2,3,currentState.listVisited,currentState.matrixMap,currentState))
         listSuccessor+=self.addListSuccessor(listVisited,stateLeft)
-        if(listSuccessor.__len__())>lenght):
+        if listSuccessor.__len__()>lenght:
             lenght+=1
             listVisited+=self.successorSingleBlockStep2(stateLeft,listVisited,matrixMap)
 
@@ -301,13 +301,13 @@ def printResult(lastState:State):
         print("("+str(top.x1)+","+str(top.y1)+")"+"|"+"("+str(top.x2)+","+str(top.y2)+")"+"|"+str(top.oriented))
         blo.level_array=top.matrixMap
         blo.drawBlo(top.x1,top.y1,top.oriented,top.x2,top.y2)
-        time.sleep(1)
+        time.sleep(0.2)
 
 
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage16.txt'
+    stage='Stage/Stage20.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
