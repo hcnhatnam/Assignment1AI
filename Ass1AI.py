@@ -36,11 +36,11 @@ class Bloxorz:
         stack=[self.startState]
         while stack.__len__()!=0:
             currentState=stack.pop()
-            #time.sleep(0.0)
+            #time.sleep(1)
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
             if self.isGoal(currentState):
-                #printResult(currentState)
+                printResult(currentState)
                 sys.exit()
             if currentState.oriented==3:
                 stack += self.successorSingleBlockStep1(currentState,currentState.listVisited,currentState.matrixMap)
@@ -86,14 +86,10 @@ class Bloxorz:
         allStateVisited=[currentState]
         while stack.__len__()!=0:
             currentState=stack.pop()#pop(0) BFS search
-            #time.sleep(0.0)
+            #time.sleep(1)
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
-            #if (currentState.x1,currentState.y1)==(3,1) or (currentState.x2,currentState.y2)==(3,1) and currentState.oriented == 3:
-            #    print("ok")
             #print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
-            if currentState.x1==3 and currentState.y1==13 and currentState.x2==3 and currentState.y2==14:
-                a=0
             if self.isGoal(currentState):
                 printResult(currentState)
                 sys.exit()
@@ -187,8 +183,6 @@ class Bloxorz:
         return listSuccessor
 
     def addListSuccessor(self,listVisited,state):
-        #if (state.x1,state.y1)==(3,3) and (state.x2,state.y2)==(4,3):
-        #    print("ok")
         if self.isValidState(state) and not self.isVisted(state,listVisited):
             return[self.enterSpecialSquare(state)]
         else:
@@ -237,48 +231,6 @@ class Bloxorz:
                     for i in special.Open:
                         stateCheck.matrixMap[i[0]][i[1]] = 0
         return stateCheck
-        '''
-        if (stateCheck.oriented==0 and stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==2) or (stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==3 or stateCheck.matrixMap[stateCheck.x2][stateCheck.y2]==3 ):# ô X
-            specialSquare=[]
-            if(stateCheck.oriented!=3):#đang dính nhau (Đang đứng ở ô X hoặc O) hoặc đang nằm ở ô O
-                stateCheck.matrixMap=copy.deepcopy(stateCheck.matrixMap)#Copy matrixMap
-                if(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==2 or stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==3):#(x1,y1) la ô đặc biệt
-                    for x in self.specialSquareList:
-                        if (x.xLocate==stateCheck.x1 and x.yLocate==stateCheck.y1 and stateCheck.parent.x1!=stateCheck.x1 ):
-                            specialSquare.append(x)
-                if(stateCheck.matrixMap[stateCheck.x2][stateCheck.y2]==2 or stateCheck.matrixMap[stateCheck.x2][stateCheck.y2]==3):#(x2,y2) la ô đặc biệt
-                    for x in self.specialSquareList:
-                        if (x.xLocate==stateCheck.x2 and x.yLocate==stateCheck.y2):
-                            specialSquare.append(x)
-            else:# tránh trường hợp 1 khối nằm trên ô X 1 khối nằm trên ô O mà nó lại bật ô X lên
-                for x in list(filter(lambda x:x.attribute==3,self.specialSquareList)):
-                    if  (x.xLocate==stateCheck.x1 and x.yLocate==stateCheck.y1) and (x.xLocate==stateCheck.parent.x1 and x.yLocate==stateCheck.parent.y1) :#Tránh trường hợp 1 khối nhở nằm ở 1 vị trí cố định và khối 2 di chuyền mà vẫn bật tắt=>Sai
-                        specialSquare.append(x)
-                    elif (x.xLocate==stateCheck.x2 and x.yLocate==stateCheck.y2) and (x.xLocate==stateCheck.parent.x2 and x.yLocate==stateCheck.parent.y2):
-                        specialSquare.append(x)
-                stateCheck.matrixMap=copy.deepcopy(stateCheck.matrixMap)#Copy matrixMap
-            for special in specialSquare:
-                if special.constance==0:
-                    for i in special.Open:
-                        stateCheck.matrixMap[i[0]][i[1]] = int(not stateCheck.matrixMap[i[0]][i[1]])#toggle
-                elif special.constance==1:#Luon Bat
-                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][1]] == 0:
-                        for i in special.Open:
-                            stateCheck.matrixMap[i[0]][i[1]] = 1
-                elif special.constance==2:#Luon Tat
-                    if  stateCheck.matrixMap[special.Open[0][0]][special.Open[0][1]] == 1:
-                        for i in special.Open:
-                            stateCheck.matrixMap[i[0]][i[1]] = 0
-        elif stateCheck.oriented==0 and stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==4:
-            specialSquare=None
-            for x in self.specialSquareList:
-                if x.xLocate==stateCheck.x1 and x.yLocate==stateCheck.y1:
-                    specialSquare=x
-                    break
-            stateCheck.x1,stateCheck.y1,stateCheck.x2,stateCheck.y2=specialSquare.Open[0][0],specialSquare.Open[0][1],specialSquare.Open[1][0],specialSquare.Open[1][1]
-            stateCheck.oriented=3
-        return stateCheck
-        '''
     def isValidState(self,stateCheck:State):
         if(stateCheck.oriented==0):
             if(stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==0 or stateCheck.matrixMap[stateCheck.x1][stateCheck.y1]==5):#Đang đứng 0 va go
@@ -301,16 +253,16 @@ def printResult(lastState:State):
         print("("+str(top.x1)+","+str(top.y1)+")"+"|"+"("+str(top.x2)+","+str(top.y2)+")"+"|"+str(top.oriented))
         blo.level_array=top.matrixMap
         blo.drawBlo(top.x1,top.y1,top.oriented,top.x2,top.y2)
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage26.txt'
+    stage='Stage/Stage1.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
-    #print(mapMatrix)
+    print(mapMatrix)
     bloxorz=0
     if stage=='Stage/Stage1.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage1
