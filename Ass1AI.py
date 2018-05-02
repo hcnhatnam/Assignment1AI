@@ -40,7 +40,7 @@ class Bloxorz:
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
             if self.isGoal(currentState):
-                printResult(currentState)
+                #printResult(currentState)
                 sys.exit()
             if currentState.oriented==3:
                 stack += self.successorSingleBlockStep1(currentState,currentState.listVisited,currentState.matrixMap)
@@ -89,9 +89,9 @@ class Bloxorz:
             #time.sleep(1)
             #blo.level_array=currentState.matrixMap
             #blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
-            if (currentState.x1,currentState.y1)==(3,1) or (currentState.x2,currentState.y2)==(3,1) and currentState.oriented == 3:
-                print("ok")
-            print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
+            #if (currentState.x1,currentState.y1)==(3,1) or (currentState.x2,currentState.y2)==(3,1) and currentState.oriented == 3:
+            #    print("ok")
+            #print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
             if currentState.x1==3 and currentState.y1==13 and currentState.x2==3 and currentState.y2==14:
                 a=0
             if self.isGoal(currentState):
@@ -307,10 +307,10 @@ def printResult(lastState:State):
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage20.txt'
+    stage='Stage/Stage26.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
-    print(mapMatrix)
+    #print(mapMatrix)
     bloxorz=0
     if stage=='Stage/Stage1.txt':
         bloxorz=Bloxorz(mapMatrix,[],State(3,3,-1,-1,0,[],mapMatrix,None),State(6,9,-1,-1,0,[],mapMatrix,None))#Stage1
@@ -352,6 +352,8 @@ def main():
         bloxorz=Bloxorz(mapMatrix,[specialSquare(2,12,[(7,9),(7,10)],3),specialSquare(7,12,[(11,4),(11,5)],3,2),specialSquare(11,12,[(11,4),(11,5)],3,1)],State(2,3,-1,-1,0,[],mapMatrix,None),State(8,3,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage20.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(9,3,[(3,12),(3,13)],3),specialSquare(6,5,[(3,7),(3,8)],3,2),specialSquare(4,9,[(3,7),(3,8)],3,2),specialSquare(6,11,[(3,7),(3,8)],3,2),specialSquare(6,9,[(3,15),(9,15)],4),specialSquare(8,14,[(8,12),(8,13)],3)],State(4,10,-1,-1,0,[],mapMatrix,None),State(10,15,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage26.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(3,9,[(5,4),(5,5)],3),specialSquare(2,15,[(7,12),(5,14)],4),specialSquare(9,3,[(9,11)],1,1)],State(7,12,-1,-1,0,[],mapMatrix,None),State(11,9,-1,-1,0,[],mapMatrix,None))
 
     blo.level_array=mapMatrix
     blo.drawBlo(bloxorz.startState.x1,bloxorz.startState.y1,bloxorz.startState.oriented)
