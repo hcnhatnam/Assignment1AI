@@ -261,7 +261,7 @@ def printResult(lastState:State):
 #Gỗ 5
 def main():
     mapMatrix = []
-    stage='Stage/Stage33.txt'
+    stage='Stage/Stage24.txt'
     with open(stage) as f:
         mapMatrix = [[int(x) for x in line.split(',')] for line in f]
     print(mapMatrix)
@@ -306,6 +306,16 @@ def main():
         bloxorz=Bloxorz(mapMatrix,[specialSquare(2,12,[(7,9),(7,10)],3),specialSquare(7,12,[(11,4),(11,5)],3,2),specialSquare(11,12,[(11,4),(11,5)],3,1)],State(2,3,-1,-1,0,[],mapMatrix,None),State(8,3,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage20.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(9,3,[(3,12),(3,13)],3),specialSquare(6,5,[(3,7),(3,8)],3,2),specialSquare(4,9,[(3,7),(3,8)],3,2),specialSquare(6,11,[(3,7),(3,8)],3,2),specialSquare(6,9,[(3,15),(9,15)],4),specialSquare(8,14,[(8,12),(8,13)],3)],State(4,10,-1,-1,0,[],mapMatrix,None),State(10,15,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage21.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(7,10,[(11,15)],2),specialSquare(8,10,[(9,7)],2)],State(5,3,-1,-1,0,[],mapMatrix,None),State(7,15,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage22.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(4,8,[(9,4),(5,14)],3,2),specialSquare(5,6,[(9,4),(5,14)],3,2),specialSquare(11,11,[(9,4)],2),specialSquare(11,4,[(5,14)],2)],State(5,3,-1,-1,0,[],mapMatrix,None),State(3,14,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage23.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(5,16,[(4,12),(4,13),(8,16)],3,2),specialSquare(3,15,[(8,3),(8,4)],3,1),specialSquare(3,15,[(11,10)],3),specialSquare(9,14,[(9,14),(4,4)],4),specialSquare(7,2,[(5,2)],3,1),specialSquare(7,2,[(8,3),(8,4)],3,2),specialSquare(3,4,[(5,6)],2,1)],State(9,6,-1,-1,0,[],mapMatrix,None),State(5,10,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage24.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(5,2,[(3,5)],2,1),specialSquare(3,13,[(4,4),(4,5)],2,1),specialSquare(3,15,[(8,7),(8,9)],4),specialSquare(4,7,[(9,9)],2,1),specialSquare(9,7,[(8,10),(8,11)],2,1)],State(4,3,-1,-1,0,[],mapMatrix,None),State(8,13,-1,-1,0,[],mapMatrix,None))
+    elif stage=='Stage/Stage25.txt':
+        bloxorz=Bloxorz(mapMatrix,[specialSquare(8,4,[(6,10),(6,11)],2,1),specialSquare(10,10,[(8,6),(8,7)],3,2),specialSquare(10,10,[(5,9)],3,1),specialSquare(4,6,[(6,10),(6,11),(4,15),(5,15)],3)],State(9,3,-1,-1,0,[],mapMatrix,None),State(5,13,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage26.txt':
         bloxorz=Bloxorz(mapMatrix,[specialSquare(3,9,[(5,4),(5,5)],3,2),specialSquare(2,15,[(7,12),(5,14)],4),specialSquare(9,3,[(9,11),(6,5)],2,1)],State(7,12,-1,-1,0,[],mapMatrix,None),State(9,9,-1,-1,0,[],mapMatrix,None))
     elif stage=='Stage/Stage27.txt':
