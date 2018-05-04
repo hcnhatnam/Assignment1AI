@@ -158,21 +158,22 @@ class Bloxorz:
   return newState
 
  def SolveBFS(self):
-  stack = [self.startState]
-  while stack.__len__() != 0:
-   currentState = stack.pop(0)
-   if self.isGoal(currentState):
-    return currentState
-   if not self.isVisted(currentState, currentState.listVisited):
-    if currentState.oriented != 3:
-     stack += self.successor(currentState, currentState.listVisited, currentState.matrixMap)
-    elif currentState.oriented == 3:
-     stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
-   currentState.listVisited.append(currentState)
-  return None
+   stack = [self.startState]
+   while stack.__len__() != 0:
+     currentState = stack.pop(0)
+     if self.isGoal(currentState):
+       printResult(currentState)
+       sys.exit()
+     if currentState.oriented == 3:
+       stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
+     elif not self.isVisted(currentState, currentState.listVisited):
+       stack += self.successor(currentState, currentState.listVisited, currentState.matrixMap)
+     currentState.listVisited.append(currentState)
+   return None
 
  def isGoal(self, currentState):
-  return self.goalState.x1 == currentState.x1 and self.goalState.y1 == currentState.y1 and currentState.oriented == 0
+  return self.goalState.x1 == currentState.x1 \
+         and self.goalState.y1 == currentState.y1 and currentState.oriented == 0
 
  def isVisted(self, currentState: State, listVisited: list):
   for i in listVisited:
@@ -267,7 +268,8 @@ class Bloxorz:
     for x in self.specialSquareList:
      if (x.xLocate == stateCheck.x2 and x.yLocate == stateCheck.y2):
       specialSquare.append(x)
-  elif stateCheck.oriented == 3:  # 2 khối tách đôi        #Chú ý: tránh trường hợp 1 khối nằm trên ô X 1 khối nằm trên ô O mà nó lại bật ô X lên
+  elif stateCheck.oriented == 3:  # 2 khối tách đôi
+    # #Chú ý: tránh trường hợp 1 khối nằm trên ô X 1 khối nằm trên ô O mà nó lại bật ô X lên
    for x in list(filter(lambda x: x.attribute == 3, self.specialSquareList)):  # Lọc những ô O rỗnng
     if (x.xLocate == stateCheck.x1 and x.yLocate == stateCheck.y1) and (
       stateCheck.x1 != stateCheck.parent.x1 or stateCheck.y1 != stateCheck.parent.y1):  # Tránh trường hợp 1 khối nhở nằm ở 1 vị trí cố định và khối 2 di chuyền mà vẫn bật tắt=>Sai
@@ -292,13 +294,14 @@ class Bloxorz:
 
  def isValidState(self, stateCheck: State):
   if (stateCheck.oriented == 0):
-   if (stateCheck.matrixMap[stateCheck.x1][stateCheck.y1] == 0 or stateCheck.matrixMap[stateCheck.x1][
-    stateCheck.y1] == 5):  # Đang đứng 0 va go
+   if (stateCheck.matrixMap[stateCheck.x1][stateCheck.y1] == 0 \
+       or stateCheck.matrixMap[stateCheck.x1][stateCheck.y1] == 5):  # Đang đứng 0 va go
     return False
    else:
     return True
   else:  # Đang nằm và (x1,y1) hoặc (x2,y2) đều là ô có gạch
-   if (stateCheck.matrixMap[stateCheck.x1][stateCheck.y1] * stateCheck.matrixMap[stateCheck.x2][stateCheck.y2] != 0):
+   if (stateCheck.matrixMap[stateCheck.x1][stateCheck.y1] * \
+       stateCheck.matrixMap[stateCheck.x2][stateCheck.y2] != 0):
     return True
    else:
     return False
