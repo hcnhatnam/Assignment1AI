@@ -45,6 +45,7 @@ class Bloxorz:
    # blo.level_array=currentState.matrixMap
    # blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
    if self.isGoal(currentState):
+    print("Thời gian chạy %s giây" % (time.time() - start_time))
     printResult(currentState)
     sys.exit()
    if currentState.oriented == 3:
@@ -102,6 +103,7 @@ class Bloxorz:
     a = 0
    # print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
    if self.isGoal(currentState):
+    print("Thời gian chạy %s giây" % (time.time() - start_time))
     printResult(currentState)
     sys.exit()
    if not self.isVisted(currentState, currentState.listVisited):
@@ -492,7 +494,7 @@ def main():
  blo.level_array = mapMatrix
  blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
  result = (bloxorz.SolveDFS())
- print("Thời gian chạy %s giây" % (time.time() - start_time))
+
  # printResult(result)
 
 
