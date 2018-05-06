@@ -329,7 +329,7 @@ def main():
  mapMatrix = []
  method=1
 
- numStage=20
+ numStage=33
 
  print("Màn chơi"+str(numStage))
  if method==1:
@@ -498,7 +498,7 @@ def main():
                      specialSquare(4, 10, [(9, 5), (9, 6)], 3, 2), specialSquare(5, 11, [(9, 5), (9, 6)], 3, 2),
                      specialSquare(5, 12, [(9, 5), (9, 6)], 3, 2), specialSquare(6, 12, [(9, 5), (9, 6)], 3, 2),
                      specialSquare(7, 13, [(9, 5), (9, 6)], 3, 2), specialSquare(8, 13, [(9, 5), (9, 6)], 3, 2),
-                     specialSquare(5, 15, [(9, 5), (9, 6)], 3, 2), specialSquare(10, 15, [(9, 5), (9, 6)], 3, 2),
+                     specialSquare(5, 15, [(9, 5), (9, 6)], 3, 2), specialSquare(9,15, [(9, 5), (9, 6)], 3, 2),
                      specialSquare(9, 16, [(3, 13)], 2)], State(5, 3, -1, -1, 0, [], mapMatrix, None),
                     State(9, 3, -1, -1, 0, [], mapMatrix, None))
 
