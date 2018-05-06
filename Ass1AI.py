@@ -317,8 +317,7 @@ def printResult(lastState: State):
   path = path.parent
  while listResult.__len__() != 0:
   top = listResult.pop()
-  print("(" + str(top.x1) + "," + str(top.y1) + ")" + "|" + "(" + str(top.x2) + "," + str(top.y2) + ")" + "|" + str(
-   top.oriented))
+  #print("(" + str(top.x1) + "," + str(top.y1) + ")" + "|" + "(" + str(top.x2) + "," + str(top.y2) + ")" + "|" + str(top.oriented))
   blo.level_array = top.matrixMap
   blo.drawBlo(top.x1, top.y1, top.oriented, top.x2, top.y2)
   time.sleep(0.2)
@@ -326,12 +325,24 @@ def printResult(lastState: State):
 
 # Gỗ 5
 def main():
+
  mapMatrix = []
- stage = 'Stage/Stage31.txt'
- i = 0
+ method=1
+
+ numStage=20
+
+ print("Màn chơi"+str(numStage))
+ if method==1:
+  print("Duyệt theo chiều sâu")
+ if method==2:
+  print("Duyệt theo chiều rộng")
+ if method==3:
+  print("Duyệt theo Heuristic")
+ stage = 'Stage/Stage'+str(numStage)+'.txt'
+
  with open(stage) as f:
   mapMatrix = [[int(x) for x in line.split(',')] for line in f]
- print(mapMatrix)
+ #print(mapMatrix)
  bloxorz = 0
  if stage == 'Stage/Stage1.txt':
   bloxorz = Bloxorz(mapMatrix, [], State(3, 3, -1, -1, 0, [], mapMatrix, None),
@@ -493,7 +504,13 @@ def main():
 
  blo.level_array = mapMatrix
  blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
- result = (bloxorz.SolveDFS())
+ result=None
+ if method==1:
+  result = (bloxorz.SolveDFS())
+ elif method==2:
+   result=bloxorz.SolveBFS()
+ elif method==3:
+   a=0#Quân
 
  # printResult(result)
 
