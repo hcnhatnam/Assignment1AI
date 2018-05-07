@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030326b3-f83b-456a-a63c-234defdaddf1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ass1AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ass1AI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,17 +13,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525700575026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525707501311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Ass1AI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass1AI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8818">
-              <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
+            <state relative-caret-position="217">
+              <caret line="465" column="11" lean-forward="true" selection-start-line="465" selection-start-column="11" selection-end-line="465" selection-end-column="11" />
               <folding>
-                <element signature="e#23#34#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -223,12 +224,13 @@
       <workItem from="1525684003083" duration="4600000" />
       <workItem from="1525689296881" duration="939000" />
       <workItem from="1525694929819" duration="3104000" />
-      <workItem from="1525698089922" duration="4253000" />
+      <workItem from="1525698089922" duration="6419000" />
+      <workItem from="1525707268300" duration="239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32425000" />
+    <option name="totallyTimeSpent" value="34830000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,11 +263,11 @@
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.3294509" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4608985" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="8" weight="0.3294509" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -286,12 +288,33 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Stage/Stage29.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stage/Stage24.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bloxorz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
-            <element signature="e#23#34#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -620,10 +643,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8818">
-          <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
+        <state relative-caret-position="217">
+          <caret line="465" column="11" lean-forward="true" selection-start-line="465" selection-start-column="11" selection-end-line="465" selection-end-column="11" />
           <folding>
-            <element signature="e#23#34#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

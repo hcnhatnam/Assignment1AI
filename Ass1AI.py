@@ -1,4 +1,4 @@
-#import bloxorz as blo
+import bloxorz as blo
 import time
 import copy
 import sys
@@ -42,9 +42,6 @@ class Bloxorz:
 		stack = [self.startState]
 		while stack.__len__() != 0:
 			currentState = stack.pop()
-			#time.sleep(0.15)
-			#blo.level_array=currentState.matrixMap
-			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
 				printResult(currentState)
@@ -96,13 +93,7 @@ class Bloxorz:
 		stack = [currentState]
 		allStateVisited = [currentState]
 		while stack.__len__() != 0:
-			currentState = stack.pop()  # pop(0) BFS search
-			#time.sleep(0.15)
-			#blo.level_array=currentState.matrixMap
-			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
-			if currentState.x1 == 3 and currentState.y1 == 2:
-				a = 0
-			# print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
+			currentState = stack.pop()
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
 				printResult(currentState)
@@ -230,9 +221,6 @@ class Bloxorz:
 		stack = [self.startState]
 		while stack.__len__() != 0:
 			currentState = stack.pop(0)
-			#time.sleep(0.2)
-			#blo.level_array=currentState.matrixMap
-			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
 				printResult(currentState)
@@ -465,22 +453,24 @@ def printResult(lastState: State):
 		listResult.append(path)
 		path = path.parent
 	print("Size"+str(listResult.__len__()))
-	'''
+
 	while listResult.__len__() != 0:
 		top = listResult.pop()
 		# print("(" + str(top.x1) + "," + str(top.y1) + ")" + "|" + "(" + str(top.x2) + "," + str(top.y2) + ")" + "|" + str(top.oriented))
 		blo.level_array = top.matrixMap
 		blo.drawBlo(top.x1, top.y1, top.oriented, top.x2, top.y2)
-		time.sleep(0.2)
-	'''
+		time.sleep(0.3)
+
 
 # Gỗ 5
 def main():
 	mapMatrix = []
+	#Chọn phương thức duyệt: 1.DFS      2.BFS         3.Heuristic
 	method = 3
 
-	numStage = 3
-	'''
+	#Chọn màn chơi
+	numStage = 1
+
 	print("Màn chơi" + str(numStage))
 	if method == 1:
 		print("Duyệt theo chiều sâu")
@@ -488,7 +478,6 @@ def main():
 		print("Duyệt theo chiều rộng")
 	if method == 3:
 		print("Duyệt theo Heuristic")
-	'''
 	stage = 'Stage/Stage' + str(numStage) + '.txt'
 
 	with open(stage) as f:
@@ -671,8 +660,8 @@ def main():
 		                   specialSquare(9, 16, [(3, 13)], 2)], State(5, 3, -1, -1, 0, [], mapMatrix, None),
 		                  State(9, 3, -1, -1, 0, [], mapMatrix, None))
 
-	#blo.level_array = mapMatrix
-	#blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
+	blo.level_array = mapMatrix
+	blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
 	result = None
 	if method == 1:
 		result = (bloxorz.SolveDFS())
@@ -680,8 +669,6 @@ def main():
 		result = bloxorz.SolveBFS()
 	elif method == 3:
 		result=bloxorz.SolveHeuristic()
-	# printResult(result)
-
 
 if __name__ == "__main__":
 	main()
