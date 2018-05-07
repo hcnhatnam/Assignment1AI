@@ -452,7 +452,7 @@ def printResult(lastState: State):
 	while path != None:
 		listResult.append(path)
 		path = path.parent
-	print("Size"+str(listResult.__len__()))
+	print("Số bước đi: "+str(listResult.__len__()))
 
 	while listResult.__len__() != 0:
 		top = listResult.pop()
@@ -469,7 +469,7 @@ def main():
 	method = 1
 
 	#Chọn màn chơi
-	numStage = 23
+	numStage = 20
 
 	print("Màn chơi (Stage) : " + str(numStage))
 	if method == 1:

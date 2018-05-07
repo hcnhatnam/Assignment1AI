@@ -1,6 +1,6 @@
 import pygame, math
 import time
-x = 100
+x = 250
 y = 25
 import os
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x,y)
