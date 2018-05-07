@@ -466,12 +466,12 @@ def printResult(lastState: State):
 def main():
 	mapMatrix = []
 	#Chọn phương thức duyệt: 1.DFS      2.BFS         3.Heuristic
-	method = 3
+	method = 1
 
 	#Chọn màn chơi
-	numStage = 1
+	numStage = 23
 
-	print("Màn chơi" + str(numStage))
+	print("Màn chơi (Stage) : " + str(numStage))
 	if method == 1:
 		print("Duyệt theo chiều sâu")
 	if method == 2:

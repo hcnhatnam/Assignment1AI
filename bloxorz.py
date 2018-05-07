@@ -1,6 +1,9 @@
 import pygame, math
 import time
-
+x = 100
+y = 25
+import os
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x,y)
 screen_width = 1100
 screen_height = 700
 startX = 100
@@ -9,7 +12,7 @@ length = 25
 width = 30
 ang = 15
 
-display = pygame.display.set_mode((screen_width,screen_height))
+display = pygame.display.set_mode((screen_width,screen_height), pygame.NOFRAME)
 
 class Block:
     def __init__(self):
