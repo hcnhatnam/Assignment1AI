@@ -1,7 +1,8 @@
-import bloxorz as blo
+#import bloxorz as blo
 import time
 import copy
 import sys
+import numpy as np
 
 start_time = time.time()
 
@@ -46,7 +47,7 @@ class Bloxorz:
 			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				printResult(currentState)
+				#printResult(currentState)
 				sys.exit()
 			if currentState.oriented == 3:
 				stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
@@ -104,7 +105,7 @@ class Bloxorz:
 			# print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				printResult(currentState)
+				#printResult(currentState)
 				sys.exit()
 			if not self.isVisted(currentState, currentState.listVisited):
 				if currentState.oriented != 3:
@@ -210,7 +211,7 @@ class Bloxorz:
 			currentState = stack.pop()
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				printResult(currentState)
+				#printResult(currentState)
 				sys.exit()
 			if not self.isVisted(currentState, currentState.listVisited):
 				if currentState.oriented != 3:
@@ -233,7 +234,8 @@ class Bloxorz:
 			#blo.level_array=currentState.matrixMap
 			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
-				printResult(currentState)
+				print("Thời gian chạy %s giây" % (time.time() - start_time))
+				#printResult(currentState)
 				sys.exit()
 			if currentState.oriented == 3:
 				stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
@@ -241,7 +243,68 @@ class Bloxorz:
 				stack += self.successor(currentState, currentState.listVisited, currentState.matrixMap)
 			currentState.listVisited.append(currentState)
 		return None
+	def nextVertex(self, graph,current,n):
+		next = []
+		for i in current:
+			if(graph[i[0]+1,i[1]] < 0):
+				next.append((i[0]+1,i[1]))
+			if(graph[i[0]-1,i[1]] < 0):
+				next.append((i[0]-1,i[1]))
+			if(graph[i[0],i[1]+1] < 0):
+				next.append((i[0],i[1]+1))
+			if(graph[i[0],i[1]-1] < 0):
+				next.append((i[0],i[1]-1))
+		return next
 
+	def findAllDistance(self, graph, s):
+		allDistance = copy.deepcopy(graph)
+		allDistance = np.asarray(graph) * (-1)
+		allDistance[s.x1,s.y1] = 0
+		current = [(s.x1,s.y1)]
+		path = 0
+		while(len(current) != 0):
+			for i in current:
+				allDistance[i[0],i[1]] = path
+			current = self.nextVertex(allDistance,current,0)
+
+			path = path+1
+
+		return allDistance
+
+	def Evaluation(self, state: State, distanceMatrix):
+		if(state.x2 < 0):
+			return 2 * (distanceMatrix[state.x1,state.y1])
+		else:
+			return distanceMatrix[state.x1,state.y1] + distanceMatrix[state.x2,state.y2]
+
+	def findBest(self, listState):
+		min = listState[0]
+		for i in listState:
+			if(i[1] < min[1]):
+				min = i
+		listState.remove(min)
+		return min
+
+	def SolveHeuristic(self):
+		allDistanceToGoal = self.findAllDistance(self.mapMatrix, self.goalState)
+		#print(allDistanceToGoal)
+		stack = [(self.startState,self.Evaluation(self.startState,allDistanceToGoal))]
+		while stack.__len__() != 0:
+			currentState = self.findBest(stack)
+			#currentState = stack.pop(0)
+			if self.isGoal(currentState[0]):
+				print("Thời gian chạy %s giây" % (time.time() - start_time))
+				#printResult(currentState[0])
+				sys.exit()
+			temp = []
+			if currentState[0].oriented == 3:
+				temp = self.successorSingleBlockStep1(currentState[0], currentState[0].listVisited, currentState[0].matrixMap)
+			elif not self.isVisted(currentState[0], currentState[0].listVisited):
+				temp = self.successor(currentState[0], currentState[0].listVisited, currentState[0].matrixMap)
+			for i in temp:
+				stack.append((i,self.Evaluation(i,allDistanceToGoal)))
+			currentState[0].listVisited.append(currentState[0])
+		return None
 	def isGoal(self, currentState):
 		return self.goalState.x1 == currentState.x1 \
 		       and self.goalState.y1 == currentState.y1 and currentState.oriented == 0
@@ -412,10 +475,10 @@ def printResult(lastState: State):
 # Gỗ 5
 def main():
 	mapMatrix = []
-	method = 1
+	method = 3
 
-	numStage = 2
-
+	numStage = 3
+	'''
 	print("Màn chơi" + str(numStage))
 	if method == 1:
 		print("Duyệt theo chiều sâu")
@@ -423,6 +486,7 @@ def main():
 		print("Duyệt theo chiều rộng")
 	if method == 3:
 		print("Duyệt theo Heuristic")
+	'''
 	stage = 'Stage/Stage' + str(numStage) + '.txt'
 
 	with open(stage) as f:
@@ -605,15 +669,15 @@ def main():
 		                   specialSquare(9, 16, [(3, 13)], 2)], State(5, 3, -1, -1, 0, [], mapMatrix, None),
 		                  State(9, 3, -1, -1, 0, [], mapMatrix, None))
 
-	blo.level_array = mapMatrix
-	blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
+	#blo.level_array = mapMatrix
+	#blo.drawBlo(bloxorz.startState.x1, bloxorz.startState.y1, bloxorz.startState.oriented)
 	result = None
 	if method == 1:
 		result = (bloxorz.SolveDFS())
 	elif method == 2:
 		result = bloxorz.SolveBFS()
 	elif method == 3:
-		a = 0  # Quân
+		result=bloxorz.SolveHeuristic()
 	# printResult(result)
 
 
