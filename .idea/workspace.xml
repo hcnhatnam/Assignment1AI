@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030326b3-f83b-456a-a63c-234defdaddf1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ass1AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ass1AI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="Ass1AI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass1AI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-552">
-              <caret line="94" column="33" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="33" />
+            <state relative-caret-position="-8818">
+              <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
               <folding>
                 <element signature="e#23#34#0" expanded="true" />
               </folding>
@@ -224,12 +223,12 @@
       <workItem from="1525684003083" duration="4600000" />
       <workItem from="1525689296881" duration="939000" />
       <workItem from="1525694929819" duration="3104000" />
-      <workItem from="1525698089922" duration="3471000" />
+      <workItem from="1525698089922" duration="4253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31643000" />
+    <option name="totallyTimeSpent" value="32425000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="94" column="33" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="33" />
+        <state relative-caret-position="-8818">
+          <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
           <folding>
             <element signature="e#23#34#0" expanded="true" />
           </folding>

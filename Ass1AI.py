@@ -47,7 +47,7 @@ class Bloxorz:
 			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				#printResult(currentState)
+				printResult(currentState)
 				sys.exit()
 			if currentState.oriented == 3:
 				stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
@@ -105,7 +105,7 @@ class Bloxorz:
 			# print("("+str(currentState.x1)+","+str(currentState.y1)+")"+"|"+"("+str(currentState.x2)+","+str(currentState.y2)+")"+"|"+str(currentState.oriented))
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				#printResult(currentState)
+				printResult(currentState)
 				sys.exit()
 			if not self.isVisted(currentState, currentState.listVisited):
 				if currentState.oriented != 3:
@@ -211,7 +211,7 @@ class Bloxorz:
 			currentState = stack.pop()
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				#printResult(currentState)
+				printResult(currentState)
 				sys.exit()
 			if not self.isVisted(currentState, currentState.listVisited):
 				if currentState.oriented != 3:
@@ -235,7 +235,7 @@ class Bloxorz:
 			#blo.drawBlo(currentState.x1,currentState.y1,currentState.oriented,currentState.x2,currentState.y2)
 			if self.isGoal(currentState):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				#printResult(currentState)
+				printResult(currentState)
 				sys.exit()
 			if currentState.oriented == 3:
 				stack += self.successorSingleBlockStep1(currentState, currentState.listVisited, currentState.matrixMap)
@@ -294,7 +294,7 @@ class Bloxorz:
 			#currentState = stack.pop(0)
 			if self.isGoal(currentState[0]):
 				print("Thời gian chạy %s giây" % (time.time() - start_time))
-				#printResult(currentState[0])
+				printResult(currentState[0])
 				sys.exit()
 			temp = []
 			if currentState[0].oriented == 3:
@@ -464,13 +464,15 @@ def printResult(lastState: State):
 	while path != None:
 		listResult.append(path)
 		path = path.parent
+	print("Size"+str(listResult.__len__()))
+	'''
 	while listResult.__len__() != 0:
 		top = listResult.pop()
 		# print("(" + str(top.x1) + "," + str(top.y1) + ")" + "|" + "(" + str(top.x2) + "," + str(top.y2) + ")" + "|" + str(top.oriented))
 		blo.level_array = top.matrixMap
 		blo.drawBlo(top.x1, top.y1, top.oriented, top.x2, top.y2)
 		time.sleep(0.2)
-
+	'''
 
 # Gỗ 5
 def main():
