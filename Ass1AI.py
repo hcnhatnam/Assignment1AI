@@ -469,7 +469,7 @@ def main():
 	method = 1
 
 	#Chọn màn chơi
-	numStage = 20
+	numStage = 30
 
 	print("Màn chơi (Stage) : " + str(numStage))
 	if method == 1:

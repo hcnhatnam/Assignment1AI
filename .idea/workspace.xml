@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="030326b3-f83b-456a-a63c-234defdaddf1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Ass1AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ass1AI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloxorz.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloxorz.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,15 +12,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525710432946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment1AI$Ass1AI.coverage" NAME="Ass1AI Coverage Results" MODIFIED="1525711809388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Ass1AI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ass1AI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="467" column="65" lean-forward="true" selection-start-line="467" selection-start-column="65" selection-end-line="467" selection-end-column="65" />
+            <state relative-caret-position="136">
+              <caret line="465" column="9" lean-forward="true" selection-start-line="465" selection-start-column="9" selection-end-line="465" selection-end-column="9" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -79,8 +78,8 @@
         <option value="$PROJECT_DIR$/Stage/Stage23.txt" />
         <option value="$PROJECT_DIR$/Stage/Stage24.txt" />
         <option value="$PROJECT_DIR$/Stage/Stage29.txt" />
-        <option value="$PROJECT_DIR$/Ass1AI.py" />
         <option value="$PROJECT_DIR$/bloxorz.py" />
+        <option value="$PROJECT_DIR$/Ass1AI.py" />
       </list>
     </option>
   </component>
@@ -217,12 +216,12 @@
       <workItem from="1525689296881" duration="939000" />
       <workItem from="1525694929819" duration="3104000" />
       <workItem from="1525698089922" duration="6419000" />
-      <workItem from="1525707268300" duration="2165000" />
+      <workItem from="1525707268300" duration="3089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36756000" />
+    <option name="totallyTimeSpent" value="37680000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -246,7 +245,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2828619" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.2828619" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -635,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Ass1AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="467" column="65" lean-forward="true" selection-start-line="467" selection-start-column="65" selection-end-line="467" selection-end-column="65" />
+        <state relative-caret-position="136">
+          <caret line="465" column="9" lean-forward="true" selection-start-line="465" selection-start-column="9" selection-end-line="465" selection-end-column="9" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
